@@ -26,7 +26,7 @@ func init() {
 	client = &http.Client{}
 }
 
-func (cl *WeebClient) TophRandom(Type string) (TophResp, error) {
+func (cl *Client) TophRandom(Type string) (TophResp, error) {
 	req, err := http.NewRequest("GET", "https://api.weeb.sh/images/random?type="+Type, nil)
 	if err != nil {
 		return TophResp{}, err
@@ -52,7 +52,7 @@ func (cl *WeebClient) TophRandom(Type string) (TophResp, error) {
 	return weebresp, nil
 }
 
-type WeebClient struct {
+type Client struct {
 	Token     string
 	UserAgent string
 }
